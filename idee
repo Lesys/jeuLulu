@@ -8,3 +8,8 @@ Le but du programme sera de faire plusieurs listes:
 	- 1 liste avec les ennemis (1 pioche)
 
 Total: 7 pioches
+
+
+- Séparer les fonctions en plusieurs fichiers
+- Faire une liste (fichier .txt) et y inclure les valeurs (nombre de carte) des  pioches
+- Faire un Makefile
