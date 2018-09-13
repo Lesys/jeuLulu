@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include <time.h>
 
 #define NB_PIOCHE 10
@@ -19,3 +20,5 @@ int tirer_carte(int* nb_cartes_pioches[NB_PIOCHE][2], int);
 void remplissage_listes(int* nb_cartes_pioches[NB_PIOCHE][2]);
 
 void shuffle(int*, int);
+
+void lecture_fichier(int* nb_cartes_pioches[NB_PIOCHE][2], char*);
