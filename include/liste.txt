@@ -1,10 +1,11 @@
-héros communs;39
-héros rares force;12
-héros rares determination;16
-héros rares charisme;19
-héros épiques force;9
-héros épiques détermination;5
-héros épiques charisme;7
+héros_communs;39
+héros_rares_force;12
+héros_rares_détermination;16
+héros_rares_charisme;19
+héros_épiques_force;9
+héros_épiques_détermination;5
+héros_épiques_charisme;7
 chances;35
 pièges;25
 vilains;14
+

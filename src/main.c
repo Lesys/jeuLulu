@@ -7,9 +7,12 @@ int main() {
 
 	int fini = 0;
         char saisie_fin;
+
+	int* heros_communs = 0;
+
         // Création des tableaux
         // Héros uniquement obtenables dans le HQ/QG
-        int heros_communs[NB_HEROS_COMMUNS];
+        //int heros_communs[NB_HEROS_COMMUNS];
 
         // Héros obtenables dans les villes (1 chacne sur 10 d'avoir une épique)
         int heros_rare_force[NB_HEROS_RARES_FORCE];
@@ -24,6 +27,8 @@ int main() {
         int pieges[NB_PIEGES];
         int vilains[NB_VILAINS];
 
+
+
         int* nb_cartes_pioches[NB_PIOCHE][2] = {{heros_communs, &NB_HEROS_COMMUNS}, {heros_rare_force, &NB_HEROS_RARES_FORCE}, {heros_rare_deter, &NB_HEROS_RARES_DETER}, {heros_rare_chari, &NB_HEROS_RARES_CHARI},
                 {heros_epique_force, &NB_HEROS_EPIQUES_FORCE}, {heros_epique_deter, &NB_HEROS_EPIQUES_DETER}, {heros_epique_chari, &NB_HEROS_EPIQUES_CHARI}, {chances, &NB_CHANCES}, {pieges, &NB_PIEGES}, {vilains, &NB_VILAINS}};
 
@@ -33,6 +38,11 @@ int main() {
 	lecture_fichier(nb_cartes_pioches, "../include/liste.txt");
 
 	printf("Fin dans le main\n\n");
+
+	printf("%d", nb_cartes_pioches[0][1]);
+
+	printf("Taille héros communs: %d", *(nb_cartes_pioches[0][1]));
+	heros_communs = malloc(sizeof(int) * *(nb_cartes_pioches[0][1]));
 
         // Ajout des numéros aléatoires
         remplissage_listes(nb_cartes_pioches);
@@ -45,6 +55,7 @@ int main() {
         for (i = 0; i < NB_PIOCHE; i++)
                 afficher_tableau(nb_cartes_pioches[i][0], *(nb_cartes_pioches[i][1]));
 
+	free(heros_communs);
 	return 0;
 }
 
