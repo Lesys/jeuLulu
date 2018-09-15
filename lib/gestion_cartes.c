@@ -47,7 +47,7 @@ int tirer_carte(int* nb_cartes_pioches[NB_PIOCHE][2], int choix) {
                         break;*/
                 case 2:
                 case 3:
-                case 4: chance = rand() % 10;
+                case 4: chance = rand() % 4;
                         // Rang au dessus
                         if (chance == 1) {
                                 printf("\n-------------------\nCHANCE!! La rareté de la carte passe à %s.\n", (choix == 1? "rare" : "épique"));
