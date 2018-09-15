@@ -5,10 +5,10 @@
 int main() {
         srand(time(NULL));
 
-	int fini = 0;
-        char saisie_fin;
+//	int fini = 0;
+  //      char saisie_fin;
 
-	int* heros_communs = 0;
+	int* heros_communs = NULL;
 
         // Création des tableaux
         // Héros uniquement obtenables dans le HQ/QG
@@ -39,16 +39,19 @@ int main() {
 
 	printf("Fin dans le main\n\n");
 
-	printf("%d", nb_cartes_pioches[0][1]);
+        int i = 0;
+        for (i = 0; i < NB_PIOCHE; i++)
+		printf("Taille pioche %d: %d\n", i + 1, *(nb_cartes_pioches[i][1]));
 
-	printf("Taille héros communs: %d", *(nb_cartes_pioches[0][1]));
-	heros_communs = malloc(sizeof(int) * *(nb_cartes_pioches[0][1]));
+	if ((heros_communs = malloc(sizeof(int) * *(nb_cartes_pioches[0][1]))) != NULL)
+		printf("Allocation OK\n\n");
+	else
+		printf("Allocation ratée\n\n");
 
         // Ajout des numéros aléatoires
         remplissage_listes(nb_cartes_pioches);
 
 	// Mélange tous les tableaux
-        int i = 0;
         for (i = 0; i < NB_PIOCHE; i++)
                 shuffle(nb_cartes_pioches[i][0], *(nb_cartes_pioches[i][1]));
 
