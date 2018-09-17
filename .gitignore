@@ -1,0 +1,4 @@
+# Ignorer les constructions après le make
+bin/*
+build/*
+*.o
