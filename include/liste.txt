@@ -8,4 +8,3 @@ héros_épiques_charisme;7
 chances;35
 pièges;25
 vilains;14
-

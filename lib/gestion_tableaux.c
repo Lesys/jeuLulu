@@ -11,18 +11,18 @@ void rename_liste(char* chaine) {
 void lecture_fichier(int* nb_cartes_pioches[NB_PIOCHE][2], char* filename) {
 	FILE* file = 0;
 	char ligne[30];
-	printf("nom fichier: %s\n\n", filename);
+//	printf("nom fichier: %s\n\n", filename);
 
 	if ((file = fopen("../include/liste.txt", "r"))) {
 		int taille = 0, i = 0, j = 0, num_pioche = 0, nb_cartes = 0;
 
-		printf("Début de la lecture:\n\n");
+//		printf("Début de la lecture:\n\n");
 
 		// Lecture de toutes les lignes dans le fichier
 		while (fscanf(file, "%s\n", ligne) != EOF){
 			// Renomme la ligne pour correspondre au tableau de pioche
 			rename_liste(ligne);
-			printf("Lecture ligne: %s\n\n", ligne);
+//			printf("Lecture ligne: %s\n\n", ligne);
 			taille = strlen(ligne);
 			i = taille; // héros communs;
 			nb_cartes = 0;
@@ -31,10 +31,11 @@ void lecture_fichier(int* nb_cartes_pioches[NB_PIOCHE][2], char* filename) {
 
 			// Recherche l'endroit de la séparation
 			while (ligne[--i] != ';');
-			printf("Taille i: %d\n\n", i);
+//				printf("Taille i: %d\n\n", i);
 
+			// Tant qu'un nom de pioche n'a pas été trouvé en commun avec la ligne
 			while (j < i && num_pioche < NB_PIOCHE) {
-				printf("Taille nom pioche: %d\n\n", strlen(Pioches[num_pioche][0]));
+//				printf("Taille nom pioche: %d\n\n", strlen(Pioches[num_pioche][0]));
 				if (i == strlen(Pioches[num_pioche][0]))
 					// Regarde quel nom correspond à quelle pioche, puis donne le numéro à la pioche
 					for (j = 0; j < i && ligne[j] == (Pioches[num_pioche][0])[j]; j++);
@@ -44,28 +45,30 @@ void lecture_fichier(int* nb_cartes_pioches[NB_PIOCHE][2], char* filename) {
 			}
 
 			// Si une chaine correspond, affiche laquelle
-			if (num_pioche >= NB_PIOCHE)
+			if (num_pioche >= NB_PIOCHE) {
 				printf("Le nom ne correspond à rien dans la pioche\n\n");
+				exit(1);
+			}
 			else {
-				printf("La ligne %s correspond à %s\n\n", ligne, Pioches[num_pioche][0]);
+//				printf("La ligne %s correspond à %s\n\n", ligne, Pioches[num_pioche][0]);
 
 				while (++i < taille)
 					nb_cartes = nb_cartes * 10 + ligne[i] - '0';
 
-				printf("Il y a %d cartes\n\n", nb_cartes);
+//				printf("Il y a %d cartes\n\n", nb_cartes);
 
-				printf("Ajoute %d cartes dans la pioche %s\n\n", nb_cartes, Pioches[num_pioche][0]);
+//				printf("Ajoute %d cartes dans la pioche %s\n\n", nb_cartes, Pioches[num_pioche][0]);
 
 				// Ajoute le nombre de cartes dans la pioche correspondante
 				*(nb_cartes_pioches[num_pioche][1]) = nb_cartes;
 			}
 		}
 
-		for (i = 0; i < NB_PIOCHE; i++)
-			printf("Pioche %d: %d cartes\n", i + 1, *(nb_cartes_pioches[i][1]));
+//		for (i = 0; i < NB_PIOCHE; i++)
+//			printf("Pioche %d: %d cartes\n", i + 1, *(nb_cartes_pioches[i][1]));
 
 		fclose(file);
-		printf("fin de la lecture dans la fonction\n\n");
+//		printf("fin de la lecture dans la fonction\n\n");
 
 	}
 	else
@@ -79,10 +82,12 @@ void remplissage_listes(int* nb_cartes_pioches[NB_PIOCHE][2]) {
         int i = 0, j = 0;
         // Permet de parcourir toutes les pioches
         for (i = 0; i < NB_PIOCHE; i++) {
+//		printf("Pioche n° %d:\n", i + 1);
                 // Parcour la pioche en cours pour ajouter les numéros
                 for (j = 1; j <= *(nb_cartes_pioches[i][1]); j++) {
                         // Ajoute les numéros de 1 à X dans le tableau correspondant
-                        (*(nb_cartes_pioches[i]))[j - 1] = j;
+//			printf("Ajout du numéro %d\n", j);
+                        *((nb_cartes_pioches[i][0]) + j - 1) = j;
                 }
         }
 }
