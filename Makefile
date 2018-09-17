@@ -46,7 +46,7 @@ libLDLIBS = -lc
 ARFLAGS = rcs
 
 #Options des programmes en statique et dynamique
-STATIC = jeuLulu.static
+STATIC = jeuLulu.exe
 DYNAMIC = jeuLulu.shared
 sharedLDFLAGS := -L.
 sharedLDLIBS := -l$(LINKNAME)
