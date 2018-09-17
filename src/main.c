@@ -20,7 +20,7 @@ int main() {
 	choix_nombre_carte(&NB_VILAINS, "vilains");
 
 	int fini = 0;
-//	char saisie_fin;
+	char saisie_fin;
 	// Création des tableaux
 	// Héros uniquement obtenables dans le HQ/QG
 	int heros_communs[NB_HEROS_COMMUNS];
@@ -87,10 +87,6 @@ int main() {
 				printf("\n-------------------\nVous avez tiré la carte %d de la pioche %s\n-------------------\n\n", carte, Pioches[choix - 1][0]);
 			else
 				printf("\n-------------------\nIl n'y a plus de carte dans le paquet %s\n-------------------\n\n", Pioches[choix - 1][0]);
-
-			printf("Pour arrêter le jeu, saisissez \"n\" ou \"N\", sinon appuyez sur ENTER\n");
-//			scanf("%c", &saisie_fin);
-//			scanf("%c", &saisie_fin);
 		}
 		else
 			fini = 1;
