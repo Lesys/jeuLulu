@@ -13,9 +13,9 @@ int prendre_carte(int* liste_cartes, int nb_cartes) {
 
         // Récupère le numéro de la carte
         int carte = liste_cartes[0];
-        int i = 1;
+	int i = 1;
 
-        // D2cale toutes les cartes de 1 cran vers la gauche du tableau
+        // Décale toutes les cartes de 1 cran vers la gauche du tableau
         for (i = 1; i < nb_cartes && liste_cartes[i]; i++)
                 liste_cartes[i - 1] = liste_cartes[i];
 
@@ -47,7 +47,7 @@ int tirer_carte(int* nb_cartes_pioches[NB_PIOCHE][2], int choix) {
                         break;*/
                 case 2:
                 case 3:
-                case 4: chance = rand() % PROB_AUGMENTATION_RARE_EPIQUE;
+                case 4: chance = rand() % (PROB_AUGMENTATION_RARE_EPIQUE);
                         // Rang au dessus
                         if (chance == 1) {
                                 printf("\n-------------------\nCHANCE!! La rareté de la carte passe à %s.\n", (choix == 1? "rare" : "épique"));

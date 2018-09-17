@@ -56,10 +56,6 @@ int main() {
         for (i = 0; i < NB_PIOCHE; i++)
                 afficher_tableau(nb_cartes_pioches[i][0], *(nb_cartes_pioches[i][1]));
 
-	// Libère toutes les pioches
-	for (i = 0; i < NB_PIOCHE; i++)
-		free(nb_cartes_pioches[i][0]);
-
 	// Boucle pour tirer les cartes
 	while (!fini) {
 
@@ -93,6 +89,11 @@ int main() {
 			fini = 1;
 
 	}
+
+	// Libère toutes les pioches
+	for (i = 0; i < NB_PIOCHE; i++)
+		free(nb_cartes_pioches[i][0]);
+
 
 	return 0;
 }
