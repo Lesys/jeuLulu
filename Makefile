@@ -8,8 +8,8 @@
 
 #Variables pour faciliter la saisie et les modifications dans le Makefile :
 #Variable pour le compilateur
-#CC ?= gcc
-CC ?= i586-mingw32msvc-gcc
+CC ?= gcc
+GW ?= i586-mingw32msvc-gcc
 
 #Variable où aller chercher les fichiers
 VPATH = lib:build:bin:src:include
@@ -46,7 +46,7 @@ libLDLIBS = -lc
 ARFLAGS = rcs
 
 #Options des programmes en statique et dynamique
-STATIC = jeuLulu.exe
+STATIC = jeuLulu.static
 DYNAMIC = jeuLulu.shared
 sharedLDFLAGS := -L.
 sharedLDLIBS := -l$(LINKNAME)
