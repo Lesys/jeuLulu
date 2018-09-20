@@ -1,3 +1,5 @@
+#include "fonctions.h"
+
 // Variables globales
 int NB_HEROS_COMMUNS = 0; // Nombre total de cartes communes
 

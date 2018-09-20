@@ -105,11 +105,11 @@ MOVE: $(DYNAMIC) $(STATIC)
 	-mv $(DIRMAIN)*.o $(DIRLIB)*.o *.o ./$(DIROBJ)
 
 #Nettoie les fichiers créés dans le current directory
-clean: cleanNewDir
+cleanFiles:
 	-rm *.o *JeuLulu* *jeuLulu*
 
 #Nettoie les dossiers créés et leur contenu
-cleanNewDir:
+clean: cleanFiles
 	-rm -R $(DIRLIB) $(DIROBJ)
 
 #Nettoie l'écran
