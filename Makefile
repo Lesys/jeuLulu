@@ -48,6 +48,7 @@ ARFLAGS = rcs
 #Options des programmes en statique et dynamique
 STATIC = jeuLulu.static
 DYNAMIC = jeuLulu.shared
+EXE = jeuLulu.exe
 sharedLDFLAGS := -L.
 sharedLDLIBS := -l$(LINKNAME)
 staticLDFLAGS := -L.
@@ -86,14 +87,12 @@ $(STATIC): LDFLAGS := $(staticLDFLAGS)
 $(STATIC): LDLIBS := $(staticLDLIBS)
 $(STATIC): $(DIRMAIN)$(PROGRPRINC) $(libSTATIC)
 	$(CC) -o $@ $(DIRMAIN)$(PROGRPRINC) $(staticLDFLAGS) $(staticLDLIBS)
-#	$(GW) -o win.$@ $(DIRMAIN)$(PROGRPRINC) $(staticLDFLAGS) $(staticLDLIBS)
-
+	$(GW) -o $(EXE) src/main.c lib/gestion_tableaux.c lib/gestion_cartes.c include/fonctions.h include/variables.h
 #Génération du programme dynamique
 $(DYNAMIC): LDFLAGS := $(sharedLDFLAGS)
 $(DYNAMIC): LDLIBS := $(sharedLDLIBS)
 $(DYNAMIC): $(DIRMAIN)$(PROGRPRINC) $(REALNAME)
 	$(CC) -o $@ $(DIRMAIN)$(PROGRPRINC) $(sharedLDFLAGS) $(sharedLDLIBS)
-#	$(GW) -o win.$@ $(DIRMAIN)$(PROGRPRINC) $(sharedLDFLAGS) $(sharedLDLIBS)
 
 #Execution du programme dynamique
 execution: $(DYNAMIC) MOVE clearScreen
