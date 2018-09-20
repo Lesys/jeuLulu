@@ -67,9 +67,11 @@ int main() {
 			printf("%s°) %s\n", Pioches[i][1], Pioches[i][0]);
 
 		int choix = -1;
+
+		printf("20°) Piocher jusqu'à avoir un équipement\n");
 		printf("0°) Arrêter le programme\nVotre choix: ");
 
-		while ((choix < 1 || choix > NB_PIOCHE) && (choix != 0)) {
+		while ((choix < 1 || choix > NB_PIOCHE) && (choix != 0) && (choix != 20)) {
 			if (choix != -1)
 				printf("Veuillez choisir un choix entre 1 et %d\n", NB_PIOCHE);
 
@@ -80,6 +82,12 @@ int main() {
 			// Tire la carte de la pioche du joueur
 			int carte = tirer_carte(nb_cartes_pioches, choix);
 
+			switch (choix) {
+				case 20: choix = trouver_pioche("chances") + 1;
+//					choix = (int)Pioches[choix][1];
+					break;
+				default: break;
+			}
 			if (carte)
 				printf("\n-------------------\nVous avez tiré la carte %d de la pioche %s\n-------------------\n\n", carte, Pioches[choix - 1][0]);
 			else

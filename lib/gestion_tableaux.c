@@ -7,6 +7,16 @@ void rename_liste(char* chaine) {
 		*chaine = *chaine == '_'? ' ' : *chaine;
 }
 
+// Permet de récupérer le numéro avec un nom de pioche
+int trouver_pioche(char* nom_pioche) {
+	int num_pioche = 0;
+
+	while (strcmp(nom_pioche, Pioches[num_pioche][0]) && num_pioche < NB_PIOCHE)
+		num_pioche++;
+
+	return num_pioche;
+}
+
 // Permet de lire la lsite de paramètres pour ne pas à avoir les rentrer à chaque nouvelle partie
 void lecture_fichier(int* nb_cartes_pioches[NB_PIOCHE][2], char* filename) {
 	FILE* file = 0;
@@ -26,13 +36,15 @@ void lecture_fichier(int* nb_cartes_pioches[NB_PIOCHE][2], char* filename) {
 //			taille = strlen(ligne);
 //			i = taille; // héros communs;
 			//nb_cartes = 0;
-			num_pioche = 0;
+//			num_pioche = 0;
 //			j = 0;
 
 			// Recherche l'endroit de la séparation
 //			while (ligne[--i] != ';');
 //				printf("Taille i: %d\n\n", i);
 
+			num_pioche = trouver_pioche(ligne);
+/*
 			// Tant qu'un nom de pioche n'a pas été trouvé en commun avec la ligne
 			while (strcmp(ligne, Pioches[num_pioche][0]) && num_pioche < NB_PIOCHE) {
 //				printf("Taille nom pioche: %d\n\n", strlen(Pioches[num_pioche][0]));
@@ -44,7 +56,7 @@ void lecture_fichier(int* nb_cartes_pioches[NB_PIOCHE][2], char* filename) {
 				num_pioche++;
 
 			}
-
+*/
 			// Si une chaine correspond, affiche laquelle
 			if (num_pioche >= NB_PIOCHE) {
 				printf("Le nom ne correspond à rien dans la pioche\n\n");
