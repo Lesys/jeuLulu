@@ -18,7 +18,7 @@ int NB_VILAINS = 0; // Nombre total de vilains dans le jeu
 char* FILENAME = "../include/liste.txt"; // Nom du fichier à lire avec les quantités de cartes dans chaque pioche
 
 // Nom des pioches avec leur numéro
-const char* Pioches[NB_PIOCHE][2] = {{"héros communs", "1"}, {"héros rares force", "2"}, {"héros rares détermination", "3"}, {"héros rares charisme", "4"},
-	{"héros épiques force", "5"}, {"héros épiques détermination", "6"}, {"héros épiques charisme", "7"}, {"chances", "8"}, {"pièges", "9"},
+const char* Pioches[NB_PIOCHE][2] = {{"heros communs", "1"}, {"heros rares force", "2"}, {"heros rares determination", "3"}, {"heros rares charisme", "4"},
+	{"heros epiques force", "5"}, {"heros epiques determination", "6"}, {"heros epiques charisme", "7"}, {"chances", "8"}, {"pieges", "9"},
 	{"vilains", "10"}};
 

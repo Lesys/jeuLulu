@@ -59,7 +59,7 @@ void lecture_fichier(int* nb_cartes_pioches[NB_PIOCHE][2], char* filename) {
 */
 			// Si une chaine correspond, affiche laquelle
 			if (num_pioche >= NB_PIOCHE) {
-				printf("Le nom ne correspond à rien dans la pioche\n\n");
+				printf("Le nom ne correspond a rien dans la pioche\n\n");
 				exit(1);
 			}
 			else {

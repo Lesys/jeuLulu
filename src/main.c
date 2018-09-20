@@ -39,7 +39,7 @@ int main() {
 	// Allocation des pioches
 	for (i = 0; i < NB_PIOCHE; i++) {
 		if ((nb_cartes_pioches[i][0] = malloc(sizeof(*(nb_cartes_pioches[i][0])) * *(nb_cartes_pioches[i][1]))) == NULL) {
-			printf("Allocation ratée pour la pioche %s\n\n", Pioches[i][0]);
+			printf("Allocation ratee pour la pioche %s\n\n", Pioches[i][0]);
 			exit(1);
 		}
 	}
@@ -64,12 +64,12 @@ int main() {
 		printf("Quel type de carte voulez-vous piocher?\n");
 
 		for (i = 0; i < NB_PIOCHE; i++)
-			printf("%s°) %s\n", Pioches[i][1], Pioches[i][0]);
+			printf("%s ) %s\n", Pioches[i][1], Pioches[i][0]);
 
 		int choix = -1;
 
-		printf("20°) Piocher jusqu'à avoir un équipement\n");
-		printf("0°) Arrêter le programme\nVotre choix: ");
+		printf("20 ) Piocher jusqu'a avoir un equipement\n");
+		printf("0 ) Arreter le programme\nVotre choix: ");
 
 		while ((choix < 1 || choix > NB_PIOCHE) && (choix != 0) && (choix != 20)) {
 			if (choix != -1)
@@ -89,7 +89,7 @@ int main() {
 				default: break;
 			}
 			if (carte)
-				printf("\n-------------------\nVous avez tiré la carte %d de la pioche %s\n-------------------\n\n", carte, Pioches[choix - 1][0]);
+				printf("\n-------------------\nVous avez tire la carte %d de la pioche %s\n-------------------\n\n", carte, Pioches[choix - 1][0]);
 			else
 				printf("\n-------------------\nIl n'y a plus de carte dans le paquet %s\n-------------------\n\n", Pioches[choix - 1][0]);
 		}

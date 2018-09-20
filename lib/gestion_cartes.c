@@ -38,7 +38,7 @@ int piocher_sans_defausse(int* nb_cartes_pioches[NB_PIOCHE][2], char* nom_pioche
 
 	while (choix != 0 && choix != 1) {
 		if (choix == -1)
-			printf("\n\n-------------------\nPioche %s; carte n°%d\nContinuer de piocher?\n1°) Oui\n0°) Non\n", nom_pioche, carte);
+			printf("\n\n-------------------\nPioche %s; carte n %d\nContinuer de piocher?\n1 ) Oui\n0 ) Non\n", nom_pioche, carte);
 		else
 			printf("\nVeuillez choisir entre 1 (Oui) et 0 (Non)\n");
 		scanf("%d", &choix);
@@ -51,7 +51,7 @@ int piocher_sans_defausse(int* nb_cartes_pioches[NB_PIOCHE][2], char* nom_pioche
 		if (choix == 1) {
 			// Regarde la carte suivante et demande si elle est convenable
 			carte = (nb_cartes_pioches[num_pioche_chance][0])[++indice_carte];
-			printf("\n\n-------------------\nPioche %s; carte n°%d\nContinuer de piocher?\n1°) Oui\n0°) Non\n", nom_pioche, carte);
+			printf("\n\n-------------------\nPioche %s; carte n %d\nContinuer de piocher?\n1 ) Oui\n0 ) Non\n", nom_pioche, carte);
 		}
 		else
 			printf("\nVeuillez choisir entre 1 (Oui) et 0 (Non)\n");
@@ -90,9 +90,9 @@ int tirer_carte(int* nb_cartes_pioches[NB_PIOCHE][2], int choix) {
                 case 4: chance = rand() % (PROB_AUGMENTATION_RARE_EPIQUE);
                         // Rang au dessus
                         if (chance == 1) {
-                                printf("\n-------------------\nCHANCE!! La rareté de la carte passe à %s.\n", (choix == 1? "rare" : "épique"));
+                                printf("\n-------------------\nCHANCE!! La rarete de la carte passe a %s.\n", (choix == 1? "rare" : "epique"));
                                 chance = (choix == 1? (rand() % 3) + (choix == 1? 1 : 4) : choix + 2);
-                                printf("Type de la pioche: %s\n-------------------\n\n", (chance % 3 - 1 == 0? "Force" : (chance % 3 - 1 == 1? "Détermination" : "Charisme")));
+                                printf("Type de la pioche: %s\n-------------------\n\n", (chance % 3 - 1 == 0? "Force" : (chance % 3 - 1 == 1? "Determination" : "Charisme")));
                                 carte = prendre_carte(nb_cartes_pioches[chance][0], *(nb_cartes_pioches[chance][1]), 0);
                         }
                         else // Rang normal de la carte
