@@ -24,7 +24,7 @@ void lecture_fichier(int* nb_cartes_pioches[NB_PIOCHE][2], char* filename) {
 //	printf("nom fichier: %s\n\n", filename);
 
 	if ((file = fopen("../include/liste.txt", "r"))) {
-		int /*taille = 0, i = 0, */num_pioche = 0, nb_cartes = 0;
+		int num_pioche = 0, nb_cartes = 0;
 
 //		printf("Début de la lecture:\n\n");
 
@@ -33,30 +33,9 @@ void lecture_fichier(int* nb_cartes_pioches[NB_PIOCHE][2], char* filename) {
 			// Renomme la ligne pour correspondre au tableau de pioche
 			rename_liste(ligne);
 //			printf("Lecture ligne: %s(fin)\n\n", ligne);
-//			taille = strlen(ligne);
-//			i = taille; // héros communs;
-			//nb_cartes = 0;
-//			num_pioche = 0;
-//			j = 0;
-
-			// Recherche l'endroit de la séparation
-//			while (ligne[--i] != ';');
-//				printf("Taille i: %d\n\n", i);
 
 			num_pioche = trouver_pioche(ligne);
-/*
-			// Tant qu'un nom de pioche n'a pas été trouvé en commun avec la ligne
-			while (strcmp(ligne, Pioches[num_pioche][0]) && num_pioche < NB_PIOCHE) {
-//				printf("Taille nom pioche: %d\n\n", strlen(Pioches[num_pioche][0]));
-				// Si les noms sont identiques, on a alors trouvé le nom de la pioche
-//				if (!strcmp(ligne, Pioches[num_pioche][0]))
-					// Regarde quel nom correspond à quelle pioche, puis donne le numéro à la pioche
-//					for (j = 0; j < i && ligne[j] == (Pioches[num_pioche][0])[j]; j++);
 
-				num_pioche++;
-
-			}
-*/
 			// Si une chaine correspond, affiche laquelle
 			if (num_pioche >= NB_PIOCHE) {
 				printf("Le nom ne correspond a rien dans la pioche\n\n");
@@ -77,12 +56,8 @@ void lecture_fichier(int* nb_cartes_pioches[NB_PIOCHE][2], char* filename) {
 			}
 		}
 
-//		for (i = 0; i < NB_PIOCHE; i++)
-//			printf("Pioche %d: %d cartes\n", i + 1, *(nb_cartes_pioches[i][1]));
-
 		fclose(file);
 //		printf("fin de la lecture dans la fonction\n\n");
-
 	}
 	else
 		printf("Fichier non ouvert\n\n");

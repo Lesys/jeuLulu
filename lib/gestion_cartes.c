@@ -92,7 +92,7 @@ int tirer_carte(int* nb_cartes_pioches[NB_PIOCHE][2], int choix) {
                         if (chance == 1) {
                                 printf("\n-------------------\nCHANCE!! La rarete de la carte passe a %s.\n", (choix == 1? "rare" : "epique"));
                                 chance = (choix == 1? (rand() % 3) + (choix == 1? 1 : 4) : choix + 2);
-                                printf("Type de la pioche: %s\n-------------------\n\n", (chance % 3 - 1 == 0? "Force" : (chance % 3 - 1 == 1? "Determination" : "Charisme")));
+                                printf("Type de la pioche: %s", (chance % 3 - 1 == 0? "Force" : (chance % 3 - 1 == 1? "Determination" : "Charisme")));
                                 carte = prendre_carte(nb_cartes_pioches[chance][0], *(nb_cartes_pioches[chance][1]), 0);
                         }
                         else // Rang normal de la carte
