@@ -7,7 +7,9 @@
 int main() {
 	srand(time(NULL));
 
-	int fini = 0;
+	int fini = 0; // Booléen permettant d'arrêter le jeu si je joueur le décide
+	int nb_tours = 1; // Calcul le nombre de tours (1 tour par joueur) de jeu
+	int nb_joueurs = 0; // Permet d'avoir le nombre de joueurs dans la partie
 
         // Création des tableaux
         // Héros uniquement obtenables dans le HQ/QG
@@ -56,8 +58,14 @@ int main() {
         for (i = 0; i < NB_PIOCHE; i++)
                 afficher_tableau(nb_cartes_pioches[i][0], *(nb_cartes_pioches[i][1]));
 
+	// Enregistre le nombre de joueurs dans la partie
+	printf("Combien de joueurs participent au jeu? ");
+	scanf("%d", &nb_joueurs);
+
 	// Boucle pour tirer les cartes
 	while (!fini) {
+
+		printf("\n-------------------\nTOUR %d\nGRANDS TOURS %d\n-------------------\n\n", nb_tours, (nb_tours - 1) / nb_joueurs);
 
 		// Choix de l'utilisateur
 
@@ -69,15 +77,19 @@ int main() {
 		int choix = -1;
 
 		printf("20 ) Piocher jusqu'a avoir un equipement\n");
+		printf("30 ) Ne pas piocher\n");
+		printf("31 ) Reculer de 1 tour\n");
 		printf("0 ) Arreter le programme\nVotre choix: ");
 
-		while ((choix < 1 || choix > NB_PIOCHE) && (choix != 0) && (choix != 20)) {
+		// Tant que le choix n'est pas un choix proposé par le jeu
+		while ((choix < 1 || choix > NB_PIOCHE) && (choix != 0) && (choix != 20) && (choix != 30) && (choix != 31)) {
 			if (choix != -1)
 				printf("Veuillez choisir un choix entre 1 et %d\n", NB_PIOCHE);
 
 			scanf("%d", &choix);
 		}
 
+		// Si le jeu continue
 		if (choix) {
 			// Tire la carte de la pioche du joueur
 			int carte = tirer_carte(nb_cartes_pioches, choix);
@@ -88,10 +100,22 @@ int main() {
 					break;
 				default: break;
 			}
+
+			// Si une carte est piochée / a été piochée
 			if (carte)
 				printf("\n-------------------\nVous avez tire la carte %d de la pioche %s\n-------------------\n\n", carte, Pioches[choix - 1][0]);
+			// Si aucune carte n'a été piochée (différentes raisons)
 			else
-				printf("\n-------------------\nIl n'y a plus de carte dans le paquet %s\n-------------------\n\n", Pioches[choix - 1][0]);
+				switch(choix) {
+					case 30: printf("\n-------------------\nVous ne piochez pas ce tour ci\n-------------------\n\n");
+						break;
+					case 31: printf("\n-------------------\nVous reculez de 1 tour\n-------------------\n\n");
+						nb_tours -= 2;
+						break;
+					default: printf("\n-------------------\nIl n'y a plus de carte dans le paquet %s\n-------------------\n\n", Pioches[choix - 1][0]);
+						break;
+				}
+			nb_tours++;
 		}
 		else
 			fini = 1;
@@ -102,6 +126,8 @@ int main() {
 	for (i = 0; i < NB_PIOCHE; i++)
 		free(nb_cartes_pioches[i][0]);
 
+	// Affiche le nombre de tours que la partie a durée
+	printf("\n\n-------------------\nLa partie a duree %d tours\n-------------------\n\tMerci d'avoir joue !\n", nb_tours);
 
 	return 0;
 }

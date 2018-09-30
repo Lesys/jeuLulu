@@ -111,12 +111,15 @@ int tirer_carte(int* nb_cartes_pioches[NB_PIOCHE][2], int choix) {
 			choix = trouver_pioche("chances") + 1;
 //			choix = (int)Pioches[choix][1];
 			break;
+		case 30:
+		case 31:
+			break;
                 default: printf("Cette pioche n'existe pas\n\n");
                         break;
         }
 
         // Affiche si la pioche est vide
-        if (!carte)
+        if (!carte && (choix != 30 && choix != 31))
                 printf("La pioche \"%s\" est vide\n\n", Pioches[choix - 1][0]);
 
         // Renvoie la carte sélectionnée
