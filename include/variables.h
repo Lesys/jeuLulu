@@ -1,4 +1,7 @@
-#include "fonctions.h"
+#ifndef VARIABLES_H
+#define VARIABLES_H
+
+#include "commun.h"
 
 // Variables globales
 int NB_HEROS_COMMUNS = 0; // Nombre total de cartes communes
@@ -22,3 +25,5 @@ const char* Pioches[NB_PIOCHE][2] = {{"heros communs", "1"}, {"heros rares force
 	{"heros epiques force", "5"}, {"heros epiques determination", "6"}, {"heros epiques charisme", "7"}, {"chances", "8"}, {"pieges", "9"},
 	{"vilains", "10"}};
 
+
+#endif

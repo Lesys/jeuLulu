@@ -1,7 +1,9 @@
 // A ajouter à Zotero https://stackoverflow.com/questions/6127503/shuffle-array-in-c
 
-#include "../include/fonctions.h"
+#include "../include/gestion_cartes.h"
+#include "../include/gestion_tableaux.h"
 #include "../include/variables.h"
+#include "../include/commun.h"
 
 // Le but de ce programme est de faire des tableaux avec des numéros, mélangés, et des listes différentes
 int main() {
@@ -13,7 +15,7 @@ int main() {
         // Héros uniquement obtenables dans le HQ/QG
 	int* heros_communs = NULL;
 
-        // Héros obtenables dans les villes (1 chacne sur 10 d'avoir une épique)
+        // Héros obtenables dans les villes
         int* heros_rare_force = NULL;
         int* heros_rare_deter = NULL;
         int* heros_rare_chari = NULL;
