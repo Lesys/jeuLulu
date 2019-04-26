@@ -1,0 +1,68 @@
+HEROES:
+	Jeu de plateau au tour par tour, des cartes à jouer, des joueurs
+
+	Joueurs
+		- Liste de cartes (jusqu'à 6 héros et 3 chances (ou plus) + 1 structure)
+			- 6 héros max
+			- 3 chances (compteur pour aller plus haut si nécessaire)
+			- 1 structure
+		- Nom
+		- Couleur
+		- Score
+		- Joueur suivant
+		- sockfd
+		- Type_Joueur
+
+	Cartes
+		Structure de base à faire hériter
+		- Bonus & Malus
+			- Nom DONE
+			- Utilisation DONE
+			- Effet*
+				- Type d'effet
+				- Union
+					- Chara*
+					- int (valeur de soin, de dégât ...)
+					- Carte* (carte équipée)
+					
+			- Carte* prec (pioche) DONE
+			- Carte* suiv (en main?)
+
+		- Héros & Vilains
+			- Chara*
+			- PV
+			- char* anime
+
+	Pioches DONE
+		- Carte* sommet
+		- Type_Carte
+
+	Plateau
+		- Case[18][18]
+		- Ville* force /* regarder les cases autour pour savoir dans quelle ville on se trouve */
+			- Carte* vilain
+			- Pv
+			- Score*
+				- Joueur*
+				- int degats
+				- Joueur* suiv			
+		- Ville* deter
+		- Ville* charisme
+		- nb_tour
+		- nb_joueur
+
+	Case
+		- Type_Case
+		- Joueur*
+
+	int gestion_tour(Joueur*, Plateau*) /* Fait lancer le dé, déplace le joueur, active la case sur laquelle il est tombé (s'il a fait un double réitère le processus précédent).
+		int lancer_des(int nb_des, int* score, int* double); /* retourne le score total des 2 dés et s'il a fait un double ou non */
+		/* action_joueur */
+		int deplacer_joueur(Joueur*, Plateau*, int score_des) => Appelle une fonction de calcul de trajet à partir du joueur dans toutes les directions possibles
+		int activer_case(Joueur*, Plateau*);
+		/* action_sur_case (comme le vole d'un perso/carte) */
+
+	int gestion_partie(Joueur*, Plateau*)
+		initialisation_partie(Joueur*, Plateau*, int nb_joueur);
+		boucle gestion_tour
+		
