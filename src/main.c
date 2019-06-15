@@ -23,14 +23,16 @@ int main() {
         int* heros_epique_deter = NULL;
         int* heros_epique_chari = NULL;
 
-        // Cartes chance, piège et vilains
+        // Cartes chance, piège, vilains et hopital
         int* chances = NULL;
         int* pieges = NULL;
         int* vilains = NULL;
+	int* hopital = NULL;
+
 
 	// Déclaration du tableau contenant les pioches et leur quantité
 	int* nb_cartes_pioches[NB_PIOCHE][2] = {{heros_communs, &NB_HEROS_COMMUNS}, {heros_rare_force, &NB_HEROS_RARES_FORCE}, {heros_rare_deter, &NB_HEROS_RARES_DETER}, {heros_rare_chari, &NB_HEROS_RARES_CHARI},
-		{heros_epique_force, &NB_HEROS_EPIQUES_FORCE}, {heros_epique_deter, &NB_HEROS_EPIQUES_DETER}, {heros_epique_chari, &NB_HEROS_EPIQUES_CHARI}, {chances, &NB_CHANCES}, {pieges, &NB_PIEGES}, {vilains, &NB_VILAINS}};
+		{heros_epique_force, &NB_HEROS_EPIQUES_FORCE}, {heros_epique_deter, &NB_HEROS_EPIQUES_DETER}, {heros_epique_chari, &NB_HEROS_EPIQUES_CHARI}, {chances, &NB_CHANCES}, {pieges, &NB_PIEGES}, {vilains, &NB_VILAINS}, {hopital, &NB_HOPITAL}};
 
 
 	// Appelle du fichier permettant de remplir automatiquement le nombre de carte dans chaque pioche

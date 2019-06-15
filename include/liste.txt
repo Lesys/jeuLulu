@@ -8,3 +8,4 @@ heros_epiques_charisme 7
 chances 35
 pieges 25
 vilains 14
+hopital 15

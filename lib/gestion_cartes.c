@@ -44,7 +44,7 @@ int piocher_sans_defausse(int* nb_cartes_pioches[NB_PIOCHE][2], char* nom_pioche
 		scanf("%d", &choix);
 	}
 
-	// Tant que l'utilisateur veut continuer et qu'il reste une carte à piocehr
+	// Tant que l'utilisateur veut continuer et qu'il reste une carte à piocher
 	while (choix != 0 && indice_carte < *(nb_cartes_pioches[num_pioche_chance][1])) {
 
 		// Si l'utilisateur décide de continuer
@@ -106,6 +106,8 @@ int tirer_carte(int* nb_cartes_pioches[NB_PIOCHE][2], int choix) {
                 case 9:
                 case 10: carte = prendre_carte(nb_cartes_pioches[choix - 1][0], *(nb_cartes_pioches[choix - 1][1]), 0);
                         break;
+		case 11: carte = (rand() % (*(nb_cartes_pioches[choix - 1][1]))) + 1;
+			break;
 		// Piocher jusqu'à avoir un équipement
 		case 20: carte = piocher_sans_defausse(nb_cartes_pioches, "chances");
 			choix = trouver_pioche("chances") + 1;

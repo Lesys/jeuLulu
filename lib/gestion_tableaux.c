@@ -23,7 +23,7 @@ void lecture_fichier(int* nb_cartes_pioches[NB_PIOCHE][2], char* filename) {
 	char ligne[30];
 //	printf("nom fichier: %s\n\n", filename);
 
-	if ((file = fopen("../include/liste.txt", "r"))) {
+	if ((file = fopen(filename, "r")) != NULL) {
 		int num_pioche = 0, nb_cartes = 0;
 
 //		printf("Début de la lecture:\n\n");

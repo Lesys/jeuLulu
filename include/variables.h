@@ -14,11 +14,12 @@ int NB_HEROS_EPIQUES_CHARI = 0; // Nombre total de cartes épiques de type chari
 int NB_CHANCES = 0; // Nombre total de cartes chances
 int NB_PIEGES = 0; // Nombre total de cartes pièges
 int NB_VILAINS = 0; // Nombre total de vilains dans le jeu
+int NB_HOPITAL = 0; // Nombre total de cartes hopital dans le jeu
 
 char* FILENAME = "../include/liste.txt"; // Nom du fichier à lire avec les quantités de cartes dans chaque pioche
 
 // Nom des pioches avec leur numéro
 const char* Pioches[NB_PIOCHE][2] = {{"heros communs", "1"}, {"heros rares force", "2"}, {"heros rares determination", "3"}, {"heros rares charisme", "4"},
 	{"heros epiques force", "5"}, {"heros epiques determination", "6"}, {"heros epiques charisme", "7"}, {"chances", "8"}, {"pieges", "9"},
-	{"vilains", "10"}};
+	{"vilains", "10"}, {"hopital", "11"}};
 
